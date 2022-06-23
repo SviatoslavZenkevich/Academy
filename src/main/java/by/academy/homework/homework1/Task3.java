@@ -1,4 +1,4 @@
-package by.academy.homework1;
+package by.academy.homework.homework1;
 // Zenkevich Sviatoslav
 // group 111-22
 

@@ -1,4 +1,4 @@
-package by.academy.lesson3.scanner;
+package by.academy.classwork.lesson3;
 import java.util.Scanner;
 public class ScannerDemo {
     public static void main(String[] args) {
