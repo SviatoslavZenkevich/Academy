@@ -16,5 +16,6 @@ public class Zadacha3 {
 
         }
         System.out.println("Proizvedenie chisel ot 1 do " + n + "=" + proizvedenieChisel);
+        scan.close();
     }
 }
