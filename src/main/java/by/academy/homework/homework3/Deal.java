@@ -1,7 +1,9 @@
-package by.academy.classwork.lesson8.homework3;
+package by.academy.homework.homework3;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Objects;
 
 
 public class Deal {

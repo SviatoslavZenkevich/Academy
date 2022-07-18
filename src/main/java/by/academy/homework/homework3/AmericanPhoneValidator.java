@@ -1,6 +1,7 @@
 package by.academy.homework.homework3;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+//                Решение задачи № 5
 public class AmericanPhoneValidator implements Validator {
 
 @Override
