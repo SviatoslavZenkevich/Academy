@@ -1,9 +1,7 @@
-package by.academy.homework.homework3;
+package by.academy.classwork.lesson8.homework3;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Objects;
 
 
 public class Deal {
@@ -12,6 +10,7 @@ public class Deal {
     private User buyer;
     private int index = 0;
     Product[] products;
+    //                Решение задачи № 7
     private LocalDate deadlineDate = LocalDate.now().plusDays(10);
 
     public Deal(User seller, User buyer, Product[] products) {
@@ -23,7 +22,7 @@ public class Deal {
     }
 
     private void grow() {
-        int newLenght = (int) (products.length == 0 ? 1 : products.length*1.5);
+        int newLenght = (int) (products.length == 0 ? 1 : products.length * 1.5);
         Product[] newProducts = new Product[newLenght];
         System.arraycopy(products, 0, newProducts, 0, products.length);
         products = newProducts;
@@ -36,15 +35,23 @@ public class Deal {
         products[index++] = product;
     }
 
-    public Product getProduct(int productIndex) {
-        return products[productIndex];
+    public int getProductIndex(String deletingPoduct) {
+        for (int i = 0; i < products.length; i++) {
+            if (deletingPoduct.equals(products[i].name)) {
+                return i;
+            }
+
+        }
+        return -1;
     }
 
-//    public Product removeProduct(int index) {
-//        Product[] newProducts = new Product[newLenght];
-//        System.arraycopy(products, index, newProducts, index+1, products.length);
-//    }
-
+    public void removeProduct(int index) {
+        int newLenght = (int) (products.length == 0 ? 1 : products.length - 1);
+        Product[] newProducts = new Product[newLenght];
+        System.arraycopy(products, 0, newProducts, 0, index);
+        System.arraycopy(products, index + 1, newProducts, index, products.length - index - 1);
+        products = newProducts;
+    }
 
 
     public User getSeller() {
@@ -115,13 +122,12 @@ public class Deal {
             System.out.println("You don't have enough money");
         } else {
             for (int i = 0; i < products.length; i++) {
-                System.out.println(products[i].getName() + ": " + products[i].getQuantity() + " x " +products[i].getPrice() + "$ x discount " + products [i].discount() + " = " + products[i].calcPrice());
+                System.out.println(products[i].getName() + ": " + products[i].getQuantity() + " x " + products[i].getPrice() + "$ x discount " + products[i].discount() + " = " + products[i].calcPrice());
             }
             System.out.println("=============================");
             System.out.println("Full price: " + fullPrice() + "$");
         }
     }
-
 
 
 }
