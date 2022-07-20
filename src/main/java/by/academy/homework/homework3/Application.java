@@ -31,18 +31,18 @@ public class Application {
         sc.nextLine();
         seller.setMoney(sellerMoney);
 
-//        while (true) {
-//            System.out.println("Enter seller's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
-//            String sellerDateOfBirth = sc.nextLine();
-//            if (date.dateCheck1(sellerDateOfBirth)) {
-//                seller.setDateOfBirth(sellerDateOfBirth);
-//                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//                Date date1 = simpleDateFormat.parse(sellerDateOfBirth);
-//                calendar.setTime(date1);
-//                System.out.println("Day: " + calendar.get(Calendar.DAY_OF_MONTH));
-//                System.out.println("Month: " + (calendar.get(Calendar.MONTH) + 1));
-//                System.out.println("Year: " + calendar.get(Calendar.YEAR));
-//                break;
+        while (true) {
+            System.out.println("Enter seller's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
+            String sellerDateOfBirth = sc.nextLine();
+            if (date.dateCheck1(sellerDateOfBirth)) {
+                seller.setDateOfBirth(sellerDateOfBirth);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date1 = simpleDateFormat.parse(sellerDateOfBirth);
+                calendar.setTime(date1);
+                System.out.println("Day: " + calendar.get(Calendar.DAY_OF_MONTH));
+                System.out.println("Month: " + (calendar.get(Calendar.MONTH) + 1));
+                System.out.println("Year: " + calendar.get(Calendar.YEAR));
+                break;
 ////           Во втором варианте применил альтернативное решение, которое мне больше нравится и использует LocalDate из новой Java
 ////                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 ////                LocalDate date2 = LocalDate.parse(sellerDateOfBirth, dateFormatter);
@@ -50,43 +50,43 @@ public class Application {
 ////                System.out.println("Month: " + date2.get(ChronoField.MONTH_OF_YEAR));
 ////                System.out.println("Year: " + date2.get(ChronoField.YEAR));
 ////                break;
-//            } else if (date.dateCheck2(sellerDateOfBirth)) {
-//                seller.setDateOfBirth(sellerDateOfBirth);
-//                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//                LocalDate date2 = LocalDate.parse(sellerDateOfBirth, dateFormatter);
-//                System.out.println("Day: " + date2.get(ChronoField.DAY_OF_MONTH));
-//                System.out.println("Month: " + date2.get(ChronoField.MONTH_OF_YEAR));
-//                System.out.println("Year: " + date2.get(ChronoField.YEAR));
-//                break;
-//            } else {
-//                System.out.println("You have entered the date in the wrong format. Please try again.");
-//            }
-//        }
-//        while (true) {
-//            System.out.println("Enter seller's email: ");
-//            String sellerEmail = sc.nextLine();
-//            //                Решение задачи № 9
-//            if (emailValidator.validate(sellerEmail)) {
-//                seller.setEmail(sellerEmail);
-//                break;
-//            } else {
-//                System.out.println("You have entered wrong email. Please try again.");
-//            }
-//        }
-//
-//
-//        while (true) {
-//            System.out.println("Enter seller's phone number:");
-//            String sellerPhoneNumber = sc.nextLine();
-//            //                Решение задачи № 9
-//            if (belarusPhoneValidator.validate(sellerPhoneNumber)) {
-//                seller.setPhone(sellerPhoneNumber);
-//                break;
-//            } else {
-//                System.out.println("You have entered wrong phone number. Please try again.");
-//            }
-//        }
-//
+            } else if (date.dateCheck2(sellerDateOfBirth)) {
+                seller.setDateOfBirth(sellerDateOfBirth);
+                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate date2 = LocalDate.parse(sellerDateOfBirth, dateFormatter);
+                System.out.println("Day: " + date2.get(ChronoField.DAY_OF_MONTH));
+                System.out.println("Month: " + date2.get(ChronoField.MONTH_OF_YEAR));
+                System.out.println("Year: " + date2.get(ChronoField.YEAR));
+                break;
+            } else {
+                System.out.println("You have entered the date in the wrong format. Please try again.");
+            }
+        }
+        while (true) {
+            System.out.println("Enter seller's email: ");
+            String sellerEmail = sc.nextLine();
+            //                Решение задачи № 9
+            if (emailValidator.validate(sellerEmail)) {
+                seller.setEmail(sellerEmail);
+                break;
+            } else {
+                System.out.println("You have entered wrong email. Please try again.");
+            }
+        }
+
+
+        while (true) {
+            System.out.println("Enter seller's phone number:");
+            String sellerPhoneNumber = sc.nextLine();
+            //                Решение задачи № 9
+            if (belarusPhoneValidator.validate(sellerPhoneNumber)) {
+                seller.setPhone(sellerPhoneNumber);
+                break;
+            } else {
+                System.out.println("You have entered wrong phone number. Please try again.");
+            }
+        }
+
         System.out.println("Enter buyer's name: ");
         String buyerName = sc.nextLine();
         buyer.setName(buyerName);
@@ -96,56 +96,56 @@ public class Application {
         buyer.setMoney(buyerMoney);
         sc.nextLine();
 
-//        while (true) {
-//            System.out.println("Enter buyer's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
-//            String buyerDateOfBirth = sc.nextLine();
-//            //                Решение задачи № 8
-//            if (date.dateCheck1(buyerDateOfBirth)) {
-//                buyer.setDateOfBirth(buyerDateOfBirth);
-//                //                Решение задачи № 4
-//                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//                Date date1 = simpleDateFormat.parse(buyerDateOfBirth);
-//                calendar.setTime(date1);
-//                System.out.println("Day: " + calendar.get(Calendar.DAY_OF_MONTH));
-//                System.out.println("Month: " + (calendar.get(Calendar.MONTH) + 1));
-//                System.out.println("Year: " + calendar.get(Calendar.YEAR));
-//                break;
-////           Во втором варианте применил альтернативное решение, которое мне больше нравится и использует LocalDate из новой Java
-//
-//            } else if (date.dateCheck2(buyerDateOfBirth)) {
-//                buyer.setDateOfBirth(buyerDateOfBirth);
-//                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//                LocalDate date2 = LocalDate.parse(buyerDateOfBirth, dateFormatter);
-//                System.out.println("Day: " + date2.get(ChronoField.DAY_OF_MONTH));
-//                System.out.println("Month: " + date2.get(ChronoField.MONTH_OF_YEAR));
-//                System.out.println("Year: " + date2.get(ChronoField.YEAR));
-//                break;
-//            } else {
-//                System.out.println("You have entered the date in the wrong format. Please try again.");
-//            }
-//        }
-//        while (true) {
-//            System.out.println("Enter buyer's email: ");
-//            String buyerEmail = sc.nextLine();
-//            if (emailValidator.validate(buyerEmail)) {
-//                buyer.setEmail(buyerEmail);
-//                break;
-//            } else {
-//                System.out.println("You have entered wrong email. Please try again.");
-//            }
-//        }
-//
-//
-//        while (true) {
-//            System.out.println("Enter buyer's phone number:");
-//            String buyerPhoneNumber = sc.nextLine();
-//            if (belarusPhoneValidator.validate(buyerPhoneNumber)) {
-//                seller.setPhone(buyerPhoneNumber);
-//                break;
-//            } else {
-//                System.out.println("You have entered wrong phone number. Please try again.");
-//            }
-//        }
+        while (true) {
+            System.out.println("Enter buyer's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
+            String buyerDateOfBirth = sc.nextLine();
+            //                Решение задачи № 8
+            if (date.dateCheck1(buyerDateOfBirth)) {
+                buyer.setDateOfBirth(buyerDateOfBirth);
+                //                Решение задачи № 4
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date1 = simpleDateFormat.parse(buyerDateOfBirth);
+                calendar.setTime(date1);
+                System.out.println("Day: " + calendar.get(Calendar.DAY_OF_MONTH));
+                System.out.println("Month: " + (calendar.get(Calendar.MONTH) + 1));
+                System.out.println("Year: " + calendar.get(Calendar.YEAR));
+                break;
+//          Во втором варианте применил альтернативное решение, которое мне больше нравится и использует LocalDate из новой Java
+
+            } else if (date.dateCheck2(buyerDateOfBirth)) {
+                buyer.setDateOfBirth(buyerDateOfBirth);
+                DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                LocalDate date2 = LocalDate.parse(buyerDateOfBirth, dateFormatter);
+                System.out.println("Day: " + date2.get(ChronoField.DAY_OF_MONTH));
+                System.out.println("Month: " + date2.get(ChronoField.MONTH_OF_YEAR));
+                System.out.println("Year: " + date2.get(ChronoField.YEAR));
+                break;
+            } else {
+                System.out.println("You have entered the date in the wrong format. Please try again.");
+            }
+        }
+        while (true) {
+            System.out.println("Enter buyer's email: ");
+            String buyerEmail = sc.nextLine();
+            if (emailValidator.validate(buyerEmail)) {
+                buyer.setEmail(buyerEmail);
+                break;
+            } else {
+                System.out.println("You have entered wrong email. Please try again.");
+            }
+        }
+
+
+        while (true) {
+            System.out.println("Enter buyer's phone number:");
+            String buyerPhoneNumber = sc.nextLine();
+            if (belarusPhoneValidator.validate(buyerPhoneNumber)) {
+                seller.setPhone(buyerPhoneNumber);
+                break;
+            } else {
+                System.out.println("You have entered wrong phone number. Please try again.");
+            }
+        }
 
 
         int numberOfAllProducts = 4;

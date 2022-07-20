@@ -23,6 +23,34 @@ public class Deal {
         this.index = products.length;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Deal deal = (Deal) o;
+        return index == deal.index && Objects.equals(buyTime, deal.buyTime) && Objects.equals(seller, deal.seller) && Objects.equals(buyer, deal.buyer) && Arrays.equals(products, deal.products) && Objects.equals(deadlineDate, deal.deadlineDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(buyTime, seller, buyer, index, deadlineDate);
+        result = 31 * result + Arrays.hashCode(products);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Deal{");
+        sb.append("buyTime=").append(buyTime);
+        sb.append(", seller=").append(seller);
+        sb.append(", buyer=").append(buyer);
+        sb.append(", index=").append(index);
+        sb.append(", products=").append(Arrays.toString(products));
+        sb.append(", deadlineDate=").append(deadlineDate);
+        sb.append('}');
+        return sb.toString();
+    }
+
     private void grow() {
         int newLenght = (int) (products.length == 0 ? 1 : products.length * 1.5);
         Product[] newProducts = new Product[newLenght];
@@ -80,33 +108,6 @@ public class Deal {
         this.products = products;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Deal deal = (Deal) o;
-//        return Objects.equals(buyTime, deal.buyTime) && Objects.equals(seller, deal.seller) && Objects.equals(buyer, deal.buyer) && Arrays.equals(products, deal.products);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = Objects.hash(buyTime, seller, buyer);
-//        result = 31 * result + Arrays.hashCode(products);
-//        return result;
-//    }
-//
-//    @Override
-//    public String toString() {
-//        StringBuilder builder = new StringBuilder();
-//        builder.append("Deal [seller=");
-//        builder.append(seller);
-//        builder.append(", buyer=");
-//        builder.append(buyer);
-//        builder.append(", products=");
-//        builder.append(Arrays.toString(products));
-//        builder.append("]");
-//        return builder.toString();
-//    }
 
 
     public double fullPrice() {
