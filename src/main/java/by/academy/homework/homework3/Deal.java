@@ -119,15 +119,18 @@ public class Deal {
 
 
     public void billPrint() {
-        System.out.println(seller.getName());
-        if (seller.getMoney() < fullPrice()) {
+
+        if (buyer.getMoney() < fullPrice()) {
             System.out.println("You don't have enough money");
         } else {
+
             for (int i = 0; i < products.length; i++) {
-                System.out.println(products[i].getName() + ": " + products[i].getQuantity() + " x " + products[i].getPrice() + "$ x discount " + products[i].discount() + " = " + products[i].calcPrice());
+                            System.out.println(products[i].getName() + ": " + products[i].getQuantity() + " x " + products[i].getPrice() + "$ x discount " + products[i].discount() + " = " + products[i].calcPrice());
             }
             System.out.println("=============================");
             System.out.println("Full price: " + fullPrice() + "$");
+            System.out.println("Buyer: " + buyer.getName() + ", money: " + buyer.getMoney());
+            System.out.println(LocalDateTime.now());
         }
     }
 

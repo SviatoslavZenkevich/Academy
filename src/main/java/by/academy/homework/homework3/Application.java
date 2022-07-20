@@ -22,15 +22,15 @@ public class Application {
         User seller = new User();
         User buyer = new User();
 
-//        System.out.println("Enter seller's name: ");
-//        String sellerName = sc.nextLine();
-//        seller.setName(sellerName);
-//
-//        System.out.println("Enter seller's money: ");
-//        double sellerMoney = sc.nextDouble();
-//        sc.nextLine();
-//        seller.setMoney(sellerMoney);
-//
+        System.out.println("Enter seller's name: ");
+        String sellerName = sc.nextLine();
+        seller.setName(sellerName);
+
+        System.out.println("Enter seller's money: ");
+        double sellerMoney = sc.nextDouble();
+        sc.nextLine();
+        seller.setMoney(sellerMoney);
+
 //        while (true) {
 //            System.out.println("Enter seller's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
 //            String sellerDateOfBirth = sc.nextLine();
@@ -87,17 +87,15 @@ public class Application {
 //            }
 //        }
 //
-//        System.out.println("Enter buyer's name: ");
-//        String buyerName = sc.nextLine();
-//        buyer.setName(buyerName);
-//        sc.nextLine();
-//
-//
-//        System.out.println("Enter buyer's money: ");
-//        double buyerMoney = sc.nextDouble();
-//        buyer.setMoney(buyerMoney);
-//        sc.nextLine();
-//
+        System.out.println("Enter buyer's name: ");
+        String buyerName = sc.nextLine();
+        buyer.setName(buyerName);
+
+        System.out.println("Enter buyer's money: ");
+        double buyerMoney = sc.nextDouble();
+        buyer.setMoney(buyerMoney);
+        sc.nextLine();
+
 //        while (true) {
 //            System.out.println("Enter buyer's date of birth (dd/MM/yyyy or dd-MM-yyyy): ");
 //            String buyerDateOfBirth = sc.nextLine();
@@ -215,59 +213,71 @@ public class Application {
 
         Deal deal = new Deal(seller, buyer, products);
 
+
+        System.out.println("If you want to add a product to the basket, enter 1");
+        System.out.println("If you want to to remove a product from the basket, enter 2");
+        int i = sc.nextInt();
+        sc.nextLine();
+        while (i!=1 || i!=2) {
+            System.out.println("You entered the wrong command.");
             System.out.println("If you want to add a product to the basket, enter 1");
             System.out.println("If you want to to remove a product from the basket, enter 2");
-            int i = sc.nextInt();
+            i = sc.nextInt();
             sc.nextLine();
 
-            switch (i) {
-                case 1:
-
-                    System.out.println("Enter the name of the product you wish to add:");
-                    String prod1 = sc.nextLine();
-                    System.out.print("Enter the quantity of product you wish to add:");
-                    int prod1Quantity = sc.nextInt();
-
-                    if (prod1.equals("Steak1")) {
-                        Product product1 = new Meat("Steak1", 20.99, prod1Quantity, "Ribeye", 500);
-                        deal.addProduct(product1);
-                        break;
-                    } else if (prod1.equals("Steak2")) {
-                        Product product1 = new Meat("Steak2", 15.99, prod1Quantity, "NewYorkStrip", 1100);
-                        deal.addProduct(product1);
-                        break;
-                    } else if (prod1.equals("Wine")) {
-                        Product product1 = new Wine("Chardonnay", 31.99, prod1Quantity, 9, "red");
-                        deal.addProduct(product1);
-                        break;
-                    } else if (prod1.equals("Cheese")) {
-                        Product product1 = new Cheese("DorBlue", 39.99, prod1Quantity, "France", 36);
-                        deal.addProduct(product1);
-                        break;
-                    } else {
-                        System.out.println("There are no products with this name. Enter the name again.");
-                    }
-                case 2:
-                    System.out.println("Enter the name of the product want to delete:");
-                    String prod2 = sc.nextLine();
-                    int index = deal.getProductIndex(prod2);
-                    System.out.println(index);
-                    deal.removeProduct(index);
-                    break;
-
-                    default:
-                    System.out.println("You entered the wrong command.");
-                        break;
-            }
-
-
-
-            seller.setMoney(seller.getMoney() + deal.fullPrice());
-            buyer.setMoney(buyer.getMoney() - deal.fullPrice());
-
-            deal.billPrint();
+            break;
         }
+
+        switch (i) {
+            case 1:
+
+                System.out.println("Enter the name of the product you wish to add:");
+                String prod1 = sc.nextLine();
+                System.out.println("Enter the quantity of product you wish to add:");
+                int prod1Quantity = sc.nextInt();
+
+                if (prod1.equals("Steak1")) {
+                    Product product1 = new Meat("Steak1", 20.99, prod1Quantity, "Ribeye", 500);
+                    deal.addProduct(product1);
+                    break;
+                } else if (prod1.equals("Steak2")) {
+                    Product product1 = new Meat("Steak2", 15.99, prod1Quantity, "NewYorkStrip", 1100);
+                    deal.addProduct(product1);
+                    break;
+                } else if (prod1.equals("Chardonnay")) {
+                    Product product1 = new Wine("Chardonnay", 31.99, prod1Quantity, 9, "red");
+                    deal.addProduct(product1);
+                    break;
+                } else if (prod1.equals("DorBlue ")) {
+                    Product product1 = new Cheese("DorBlue", 39.99, prod1Quantity, "France", 36);
+                    deal.addProduct(product1);
+                    break;
+                } else {
+                    System.out.println("There are no products with this name. Enter the name again.");
+                }
+            case 2:
+                System.out.println("Enter the name of the product want to delete:");
+                String prod2 = sc.nextLine();
+                int index = deal.getProductIndex(prod2);
+                deal.removeProduct(index);
+                break;
+
+
+            default:
+                System.out.println("You entered the wrong command.");
+                break;
+        }
+
+
+        seller.setMoney(seller.getMoney() + deal.fullPrice());
+        buyer.setMoney(buyer.getMoney() - deal.fullPrice());
+
+        deal.billPrint();
+
+        sc.close();
     }
+
+}
 
 
 
